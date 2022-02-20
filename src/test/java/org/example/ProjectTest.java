@@ -58,7 +58,8 @@ public class ProjectTest {
     void test2() {
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/shop-online']")).click();
         driver.findElement(By.xpath(".//p[@class='sidebar__Title-sc-4xriee-3 dXqanV']/a[@href='https://www.sinsay.com/ru/ru/shop-online/collection/outerwear']")).click();
-        driver.findElement(By.xpath(".//div[@class='close']")).click();
+        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/shop-online/collection/outerwear/denim-jackets']")).click();
 
         Assertions.assertDoesNotThrow(() -> driver.navigate().to("https://www.sinsay.com/ru/ru/shop-online/collection/outerwear/denim-jackets"),
@@ -71,14 +72,14 @@ public class ProjectTest {
     void test3() {
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/home']")).click();
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/home/bathroom/categories']")).click();
-        driver.findElement(By.xpath(".//div[@class='close']")).click();
+        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+        ;
         driver.findElement(By.xpath(".//h3[@class='sc-eCstlR iEEdBj es-product-name']/a[@href='https://www.sinsay.com/ru/ru/0948g-90x/dywan-lazienkowy-40x60cm']")).click();
         driver.findElement(By.xpath(".//img[@src='https://www.sinsay.com/media/catalog/product/cache/40/a4e40ebdc3e371adff845072e1c73f37/0/9/0948G-90X-999-1_6.jpg']")).click();
         driver.findElement(By.xpath(".//li[@data-selen-product-id='2760425']")).click();
         driver.findElement(By.xpath(".//span[@class='add-to-cart-prefix']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement webElement = driver.findElement(By.xpath("//*[@id=\"cookiebotDialogOkButton\"]"));
-        webElement.click();
+
         driver.findElement(By.xpath(".//button[@data-selen='cart-confirmation-close']")).click();
         driver.findElement(By.xpath(".//button[@class='action-btn__ActionBtn-zbpc1m-1 doiNsT']"));
 
@@ -90,14 +91,14 @@ public class ProjectTest {
     void test4() {
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/home']")).click();
         driver.findElement(By.xpath(".//a[@href='https://www.sinsay.com/ru/ru/home/bathroom/categories']")).click();
-        driver.findElement(By.xpath(".//div[@class='close']")).click();
+        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+
         driver.findElement(By.xpath(".//h3[@class='sc-eCstlR iEEdBj es-product-name']/a[@href='https://www.sinsay.com/ru/ru/0948g-90x/dywan-lazienkowy-40x60cm']")).click();
         driver.findElement(By.xpath(".//img[@src='https://www.sinsay.com/media/catalog/product/cache/40/a4e40ebdc3e371adff845072e1c73f37/0/9/0948G-90X-999-1_6.jpg']")).click();
         driver.findElement(By.xpath(".//li[@data-selen-product-id='2760425']")).click();
         driver.findElement(By.xpath(".//span[@class='add-to-cart-prefix']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement webElement = driver.findElement(By.xpath("//*[@id=\"cookiebotDialogOkButton\"]"));
-        webElement.click();
+
         driver.findElement(By.xpath(".//button[@data-selen='cart-confirmation-close']")).click();
         driver.findElement(By.xpath(".//button[@class='action-btn__ActionBtn-zbpc1m-1 doiNsT']")).click();
         driver.navigate().to("https://www.sinsay.com/ru/ru/checkout/cart/");
@@ -108,9 +109,6 @@ public class ProjectTest {
 
     @Test
     void test5() {
-        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
-        WebElement webElement = driver.findElement(By.xpath("//*[@id=\"cookiebotDialogOkButton\"]"));
-        webElement.click();
 
         driver.findElement(By.xpath("//*[@id=\"headerWrapper\"]/div/div[3]/button[1]")).click();
 
@@ -118,8 +116,12 @@ public class ProjectTest {
         driver.findElement(By.id("login[password]_id")).sendKeys("Лена3333");
 
         driver.findElement(By.xpath(".//button[@class='primary__PrimaryButtonComponent-sc-1pct4vx-0 fDECVK']")).click();
-        driver.findElement(By.xpath(".//div[@class='close']")).click();
-        driver.findElement(By.xpath(".//button[@class='action-btn__ActionBtn-zbpc1m-1 jrauLD']")).click();
+        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//*[@id=\"promoBarWrapper\"]/div/div/p/a")).click();
+
+        driver.findElement(By.xpath("//*[@id=\"headerWrapper\"]/div/div[3]/button[1]")).click();
+        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+
         driver.findElement(By.xpath("//*[@id=\"customer-data-link\"]/a")).click();
         Assertions.assertDoesNotThrow(() -> driver.navigate().to("https://www.sinsay.com/ru/ru/customer/account/edit/#personal-data"),
                 "Страница не доступна");
@@ -127,9 +129,8 @@ public class ProjectTest {
     }
     @Test
     void test6 () {
-        driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
-        WebElement webElement = driver.findElement(By.xpath("//*[@id=\"cookiebotDialogOkButton\"]"));
-        webElement.click();
+        driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+
         driver.findElement(By.xpath("//*[@id=\"headerWrapper\"]/div/div[3]/div[1]/div/div/input")).click();
         driver.findElement(By.xpath("//*[@id=\"algoliaContainer\"]/div/div[1]/div[2]/div/div[2]/input")).sendKeys("Платье");
         driver.findElement(By.xpath("//*[@id=\"algoliaContainer\"]/div/div/div[3]/div[1]/div/span")).click();
